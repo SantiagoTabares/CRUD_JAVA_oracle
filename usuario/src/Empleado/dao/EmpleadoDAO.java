@@ -34,7 +34,7 @@ public class EmpleadoDAO {
             pst.setString(3, emp.getCorreo());
             pst.setString(4, emp.getContrasena());
             
-            System.out.println(pst.toString());
+            //System.out.println(pst.toString());
             mensaje = "GUARDADO CORRECTAMENTE";
             pst.execute();
             con.commit();
@@ -49,7 +49,6 @@ public class EmpleadoDAO {
         PreparedStatement pst = null; 
         String sql = "UPDATE usuario SET  nombre = ?, correo = ?, contrasena = ?  WHERE cedula = ?";
                 
-        
         try {
             con.setAutoCommit(false);
             pst = con.prepareStatement(sql);
@@ -59,9 +58,11 @@ public class EmpleadoDAO {
             
             pst.setInt(4, emp.getCedula());
             
+           //  System.out.println(pst.toString());
             mensaje = "ACTUALIZADO CORRECTAMENTE";
-            con.commit();
+           
             pst.execute();
+            con.commit();
             pst.close();
             
         } catch (SQLException e) {
@@ -82,6 +83,7 @@ public class EmpleadoDAO {
             
           
             mensaje = "ELIMINADO CORRECTAMENTE";
+            //System.out.println(pst.toString());
             
             pst.execute();
             con.commit();

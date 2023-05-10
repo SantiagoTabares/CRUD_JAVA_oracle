@@ -18,7 +18,7 @@ public class Test {
     
     public void insertar(){
        emp.setNombre("SANTIAGO");
-       emp.setCedula(10543594);
+       emp.setCedula(10543554);
        emp.setCorreo("tabares@gmail.com");
        emp.setContrasena("123456");
        mensaje = ebo.agregarEmpleado(emp);
@@ -26,16 +26,16 @@ public class Test {
     }
     
     public void modificar(){
-       emp.setNombre("SANTIAGO");
-       emp.setCedula(10543594);
-       emp.setCorreo("tabares@gmail.com");
+       emp.setNombre("VALENTINA");
+       emp.setCedula(10543554);
+       emp.setCorreo("Vtabares@gmail.com");
        emp.setContrasena("123456");
-       mensaje = ebo.agregarEmpleado(emp);
+       mensaje = ebo.actualizarEmpleado(emp);
        System.out.println(mensaje);
     }
     
     public void eliminar(){
-       mensaje = ebo.eliminarEmpleado(10543594);
+       mensaje = ebo.eliminarEmpleado(10543554);
        System.out.println(mensaje);
     }
     
@@ -43,6 +43,7 @@ public class Test {
         Test test = new Test();
         //test.insertar();
         test.eliminar();
+        //test.modificar();
     }
 }
 
