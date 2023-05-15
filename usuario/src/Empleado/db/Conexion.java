@@ -18,15 +18,24 @@ import javax.swing.JOptionPane;
 
 
 public class Conexion {
-     private static Connection conn = null; 
-     private static  String login = "postgres";
-     private static  String passw = "STMun#20";
-     private static  String url = "jdbc:postgresql://localhost:5433/Usuarios";
+//     private static Connection conn = null; 
+//     private static  String login = "postgres";
+//     private static  String passw = "STMun#20";
+//     private static  String url = "jdbc:postgresql://localhost:5433/Usuarios";
+    private static Connection conn = null;
+    private static  String login = "Prueba";
+    private static  String passw = "123456";
+    private static  String url = "jdbc:oracle:thin:@192.168.10.177:1521:XE";
+    
+;
      
      public static Connection getConnection(){
          try {
-             Class.forName("org.postgresql.Driver");
+//           Class.forName("org.postgresql.Driver");
+             Class.forName("oracle.jdbc.OracleDriver");
+             
              conn = DriverManager.getConnection(url, login , passw);
+     
              conn.setAutoCommit(false);
              if (conn != null) {
                 System.out.println("Conexion Exitosa");
@@ -50,3 +59,4 @@ public class Conexion {
         conec.getConnection();
     }
 }
+

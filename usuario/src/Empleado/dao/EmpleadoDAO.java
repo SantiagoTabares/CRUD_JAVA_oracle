@@ -23,21 +23,25 @@ public class EmpleadoDAO {
     
     public String agregarEmpleado(Connection con, Empleado emp){
         PreparedStatement pst = null; 
-        String sql = "INSERT INTO usuario (cedula, nombre, correo, contrasena) "
-                + "VALUES(?,?,?,?); ";
+        String sql = "INSERT INTO USUARIO (cedula, nombre, correo, contrasena)"
+                + "VALUES(?,?,?,?)";
+        //String sql = "INSERT INTO USUARIO (cedula, nombre, correo, contrasena) VALUES(35,'F','F','F')";
+        //String sql = "SELECT * FROM USUARIO";
         
         try {
-            con.setAutoCommit(false);
+            //con.setAutoCommit(false);
             pst = con.prepareStatement(sql);
             pst.setInt(1,emp.getCedula());
             pst.setString(2, emp.getNombre());
             pst.setString(3, emp.getCorreo());
             pst.setString(4, emp.getContrasena());
             
-            //System.out.println(pst.toString());
+           System.out.println("SQL COMANDO "+pst.toString());
+//            System.out.println(emp.getCedula());
             mensaje = "GUARDADO CORRECTAMENTE";
             pst.execute();
-            con.commit();
+          
+            //con.commit();
             pst.close();
             
         } catch (SQLException e) {
@@ -47,7 +51,7 @@ public class EmpleadoDAO {
     }
      public String actualizarEmpleado(Connection con, Empleado emp){
         PreparedStatement pst = null; 
-        String sql = "UPDATE usuario SET  nombre = ?, correo = ?, contrasena = ?  WHERE cedula = ?";
+        String sql = "UPDATE USUARIO SET  nombre = ?, correo = ?, contrasena = ?  WHERE cedula = ?";
                 
         try {
             con.setAutoCommit(false);
@@ -73,11 +77,11 @@ public class EmpleadoDAO {
       public String eliminarEmpleado(Connection con, int cedula){
           
         PreparedStatement pst = null; 
-        String sql = "DELETE FROM  usuario  WHERE cedula = ?";
+        String sql = "DELETE FROM  USUARIO  WHERE cedula = ?";
                 
         
         try {
-            con.setAutoCommit(false);
+           
             pst = con.prepareStatement(sql);
             pst.setInt(1, cedula);
             
@@ -86,7 +90,7 @@ public class EmpleadoDAO {
             //System.out.println(pst.toString());
             
             pst.execute();
-            con.commit();
+    
             pst.close();
             
         } catch (SQLException e) {
@@ -99,7 +103,7 @@ public class EmpleadoDAO {
            String[] columnas = {"Cedula", "Nombre", "Correo", "Contrasena"};
            model = new DefaultTableModel(null, columnas);
            
-           String sql = "SELECT * FROM usuario";
+           String sql = "SELECT * FROM USUARIO";
            
            String[] filas = new String[4];
            Statement st = null; //ejecutar query

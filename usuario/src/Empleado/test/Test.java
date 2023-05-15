@@ -17,7 +17,7 @@ public class Test {
     String mensaje = " ";
     
     public void insertar(){
-       emp.setNombre("SANTIAGO");
+       emp.setNombre("JULIAN");
        emp.setCedula(10543554);
        emp.setCorreo("tabares@gmail.com");
        emp.setContrasena("123456");
@@ -41,8 +41,8 @@ public class Test {
     
     public static void main(String[] args) {
         Test test = new Test();
-        //test.insertar();
-        test.eliminar();
+        test.insertar();
+        //test.eliminar();
         //test.modificar();
     }
 }
